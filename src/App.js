@@ -1,18 +1,17 @@
 import React, { useState, useEffect } from 'react'
-import ScrollToTop from './components/ScrollToTop'
-import Navbar from './components/Navbar'
-import Home from './components/Home'
-import Free from './components/Free'
 import Clients from './components/Clients'
-import SuperRare from './components/SuperRare'
-import Release from './components/Release'
-import Like from './components/Like'
-import Signup from './components/Signup'
 import Footer from './components/Footer'
+import Free from './components/Free'
+import Home from './components/Home'
+import Like from './components/Like'
+import Navbar from './components/Navbar'
+import Release from './components/Release'
+import ScrollToTop from './components/ScrollToTop'
+import Signup from './components/Signup'
+import SuperRare from './components/SuperRare'
 import scrollreveal from 'scrollreveal'
 import './scss/index.scss'
-
-export default function App() {
+function App() {
   const [theme, setTheme] = useState('dark')
   const changeTheme = () => {
     theme === 'dark' ? setTheme('light') : setTheme('dark')
@@ -44,7 +43,6 @@ export default function App() {
     }
     registerAnimations()
   }, [])
-
   window.setTimeout(() => {
     const home = document.getElementsByClassName('home')
     home[0].style.transform = 'none'
@@ -66,3 +64,5 @@ export default function App() {
     </div>
   )
 }
+
+export default App
