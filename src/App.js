@@ -13,6 +13,10 @@ import scrollreveal from 'scrollreveal'
 import './scss/index.scss'
 
 export default function App() {
+  const [theme, setTheme] = useState('dark')
+  const changeTheme = () => {
+    theme === 'dark' ? setTheme('light') : setTheme('dark')
+  }
   useEffect(() => {
     const registerAnimations = () => {
       const sr = scrollreveal({
@@ -43,14 +47,14 @@ export default function App() {
 
   window.setTimeout(() => {
     const home = document.getElementsByClassName('home')
-    home[0].computedStyleMap.transform = 'none'
-    const nav = document.getElementsByName('nav')
-    nav[0].computedStyleMap.transform = 'none'
-  })
+    home[0].style.transform = 'none'
+    const nav = document.getElementsByTagName('nav')
+    nav[0].style.transform = 'none'
+  }, 1500)
   return (
-    <div className="app-container">
+    <div data-theme={theme} className="app-container">
       <ScrollToTop />
-      <Navbar />
+      <Navbar changeTheme={changeTheme} currentTheme={theme} />
       <Home />
       <Free />
       <Clients />
